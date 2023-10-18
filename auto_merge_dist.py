@@ -93,8 +93,8 @@ def unregister():
     #Creating AutoMerge Operator
 class MESH_OT_automerge(bpy.types.Operator):
     """Automates the Merge-by-Distance process"""
-    bl_idname = 'mesh.OT_automerge'
-    bl_label = "Auto Merge"
+    bl_idname = "mesh.automerge"
+    bl_label = "AutoMerge"
     bl_options = {'REGISTER','UNDO'}
 
     #Checks that the correct area is selected, Allows operator to be detectable
@@ -122,23 +122,23 @@ class VIEW3D_PT_objectselect(bpy.types.Panel):
     bl_idname = "MESH_PT_objectselect"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Auto Merge"
+    bl_category = "AutoMerge"
     bl_label = "Select Object"
         
         #Necessary for button to visually exist
     def draw(self, context):
-        self.layout.label(text="Select Object")
+        self.layout.operator(text="Select Object")
 
 class VIEW3D_PT_automerge(bpy.types.Panel):
     bl_idname = "MESH_PT_automerge"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Auto Merge"
-    bl_label = "Auto Merge"
+    bl_category = "AutoMerge"
+    bl_label = "Auto Merge Mesh"
         
         #Necessary for button to visually exist
     def draw(self, context):
-        self.layout.label(text="Auto Merge")
+        self.layout.operator("mesh.automerge")
 
 
 

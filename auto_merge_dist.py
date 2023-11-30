@@ -88,7 +88,8 @@ def unregister():
 
 ####---------- MAIN ------------####
 
-global object_name 
+global object_name
+object_name = "ROCKET-V1"
 
 #Michael's Code - User Interface
 
@@ -117,7 +118,7 @@ class MESH_OT_automerge(bpy.types.Operator):
         message = "Resulting Vertex Count: {}".format(result)
         bpy.context.window_manager.popup_menu(lambda self, context: self.layout.label(text=message), title="Vertex Count", icon='INFO')
         print("Finished")
-        return{result}
+        return {'FINISHED'}
 
     #creating AutoMerge Panel Button
 class VIEW3D_PT_objectselect(bpy.types.Panel):

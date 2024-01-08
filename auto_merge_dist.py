@@ -93,6 +93,10 @@ object_name = "ROCKET-V1"
 
 #Michael's Code - User Interface
 
+    #Putting all Objects in a list
+
+
+
     #Creating AutoMerge Operator
 class MESH_OT_automerge(bpy.types.Operator):
     """Automates the Merge-by-Distance process"""
@@ -112,7 +116,7 @@ class MESH_OT_automerge(bpy.types.Operator):
         desired_number = 300
         result = guess_number(desired_number)
 
-        if result["result"] == "close enough":
+        if result["result"] == "close enough" or result["result"] == "exact":
              merge_vertices_with_distance(object_name, result["guess"])
 
         message = "Resulting Vertex Count: {}".format(result)
@@ -130,14 +134,14 @@ class VIEW3D_PT_objectselect(bpy.types.Panel):
         
         #Necessary for button to visually exist
     def draw(self, context):
-        self.layout.operator(text="Select Object")
+        self.layout.label (text="Select Object")
 
 class VIEW3D_PT_automerge(bpy.types.Panel):
     bl_idname = "MESH_PT_automerge"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = "AutoMerge"
-    bl_label = "Auto Merge Mesh"
+    bl_label = "Merge-By-Distance"
         
         #Necessary for button to visually exist
     def draw(self, context):
